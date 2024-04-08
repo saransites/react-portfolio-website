@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import "./Projects.css";
 import ecommerceweb from "../../../public/Ecommerce page.jpeg";
-import fallback from '../../../public/oops-keyboard.png'
 const Projectsdetails = () => {
   const data = [
     {
@@ -52,10 +51,6 @@ const Projectsdetails = () => {
                     src={item.img}
                     className="h-full opacity-35 object-cover"
                     alt="loading..."
-                    onError={(e)=>{
-                      e.target.onerror = null;
-                      e.target.src=fallback;
-                    }}
                   />
                 </Suspense>
               </div>

@@ -7,7 +7,6 @@ import javascript from "../../public/javascript.png";
 import react from "../../public/react.png";
 import mongo from "../../public/mongo-db.png";
 import node from "../../public/nodejs.png";
-import fallback from '../../public/oops-keyboard.png'
 import "../module.css";
 
 const cards = [
@@ -111,10 +110,6 @@ const Deck = () => {
                 src={cards[i].image}
                 className="flex-grow object-cover"
                 alt="loading..."
-                onError={(e)=>{
-                  e.target.src=fallback;
-                  e.target.onerror=null;
-                }}
               />
             </animated.div>
           </animated.div>

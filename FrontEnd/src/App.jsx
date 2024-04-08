@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Herosection from "./components/Herosection";
 import About from "./components/About";
@@ -11,13 +11,11 @@ const App = () => {
     <>
       <Parallax className="styling" pages={3.39}>
         <ParallaxLayer offset={0.05} speed={-1}>
-          <Suspense fallback={<h1>loading...</h1>}>
             <img
             src={hero}
             className="w-[16rem] md:w-[24rem] fixed top-[1rem] md:top-0 right-0"
-            alt="Hero"
+            alt="Loading..."
           />
-          </Suspense>
         </ParallaxLayer>
         <ParallaxLayer className="layer1" factor={4} offset={0} speed={0.5}>
           <Herosection />
