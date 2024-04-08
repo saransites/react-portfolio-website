@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSprings, animated, to as interpolate } from "@react-spring/web";
 import { useDrag } from "react-use-gesture";
-import html from '../../public/html.png'
+import html from "../../public/html.png";
 import Css from "../../public/css.png";
 import javascript from "../../public/javascript.png";
 import react from "../../public/react.png";
 import mongo from "../../public/mongo-db.png";
 import node from "../../public/nodejs.png";
-import { Suspense } from "react";
+import fallback from '../../public/oops-keyboard.png'
 import "../module.css";
 
 const cards = [
@@ -95,20 +95,28 @@ const Deck = () => {
       <div>
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
-              <animated.div
-                {...bind(i)}
-                style={{
-                  transform: interpolate([rot, scale], trans),
-                  backgroundColor: "gray",
-                  boxShadow: "0 0 20px black",
+            <animated.div
+              {...bind(i)}
+              style={{
+                transform: interpolate([rot, scale], trans),
+                backgroundColor: "gray",
+                boxShadow: "0 0 20px black",
+              }}
+              className="flex flex-col items-center"
+            >
+              <h1 className="text-center text-[#000000] py-2 font-bold">
+                {cards[i].title}
+              </h1>
+              <img
+                src={cards[i].image}
+                className="flex-grow object-cover"
+                alt="loading..."
+                onError={(e)=>{
+                  e.target.src=fallback;
+                  e.target.onerror=null;
                 }}
-                className="flex flex-col items-center"
-              >
-                <h1 className="text-center text-[#000000] py-2 font-bold">{cards[i].title}</h1>
-                <Suspense fallback={<h1>loading...</h1>}>
-                  <img src={cards[i].image} className="flex-grow object-cover" alt="loading..." />
-                </Suspense>
-              </animated.div>
+              />
+            </animated.div>
           </animated.div>
         ))}
       </div>

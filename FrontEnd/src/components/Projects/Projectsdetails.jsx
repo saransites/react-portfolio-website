@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import "./Projects.css";
 import ecommerceweb from "../../../public/Ecommerce page.jpeg";
+import fallback from '../../../public/oops-keyboard.png'
 const Projectsdetails = () => {
   const data = [
     {
@@ -14,14 +15,13 @@ const Projectsdetails = () => {
       title: "Full-Stack Ecommerce Website",
       description:
         "Created a user authentication and users can update a cart dynamically",
-    }
+    },
   ];
   return (
     <section className="projectContainer gap-2 flex flex-wrap">
       {data.map((item, index) => {
         return (
           <div key={index} className="parent">
-            
             <div
               style={{
                 background: `linear-gradient(0deg,rgba(121, 140, 140, 0.997),rgba(201, 240, 240, 0.697))`,
@@ -47,12 +47,19 @@ const Projectsdetails = () => {
                 </span>
               </div>
               <div className="glass overflow-hidden">
-                <Suspense  fallback={<h1>loading...</h1>}>
-                  <img src={item.img} className="h-full opacity-35 object-cover" alt={item.img} />
+                <Suspense fallback={<h1>loading...</h1>}>
+                  <img
+                    src={item.img}
+                    className="h-full opacity-35 object-cover"
+                    alt="loading..."
+                    onError={(e)=>{
+                      e.target.onerror = null;
+                      e.target.src=fallback;
+                    }}
+                  />
                 </Suspense>
               </div>
             </div>
-              
           </div>
         );
       })}
