@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
+
 const Formcontacts = () => {
   const [data,setdata]=useState(
     {
@@ -13,11 +14,11 @@ const Formcontacts = () => {
       [e.target.name]:e.target.value
     })
   }
-  // saransingh010@gmail.com
+  console.log()
   const handlesubmit= async (e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post(`${window.location.origin}/sendemail`,{
+      const res=await axios.post(`${import.meta.env.VITE_API_URL}/sendemail`,{
         name: data.name,
         email: data.email,
         message: data.message

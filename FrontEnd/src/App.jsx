@@ -4,7 +4,7 @@ import Herosection from "./components/Herosection";
 import About from "./components/About";
 import Contact from "./components/Contact/Contact.jsx";
 import Projects from "./components/Projects/Projects.jsx";
-import  hero  from "../public/removebg-preview.png";
+import  hero  from "/removebg-preview.png";
 import Skills from "./components/Skills.jsx";
 const App = () => {
   return (

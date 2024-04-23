@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSprings, animated, to as interpolate } from "@react-spring/web";
 import { useDrag } from "react-use-gesture";
-import html from "../../public/html.png";
-import Css from "../../public/css.png";
-import javascript from "../../public/javascript.png";
-import react from "../../public/react.png";
-import mongo from "../../public/mongo-db.png";
-import node from "../../public/nodejs.png";
+import html from "/html.png";
+import Css from "/css.png";
+import javascript from "/javascript.png";
+import react from "/react.png";
+import mongo from "/mongo-db.png";
+import node from "/nodejs.png";
 import "../module.css";
 
 const cards = [
@@ -76,7 +76,7 @@ const Deck = () => {
           config: { friction: 250, tension: down ? 800 : isGone ? 200 : 500 },
         };
       });
-      if (!down && gone.size === cards.length)
+      if (gone.size === cards.length)
         setTimeout(() => {
           gone.clear();
           api.start((i) => to(i));
