@@ -18,7 +18,7 @@ const Formcontacts = () => {
   const handlesubmit= async (e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post(`https://react-portfolio-website-sage.vercel.app/sendemail`,{
+      const res=await axios.post(`${window.location.origin}/sendemail`,{
         name: data.name,
         email: data.email,
         message: data.message
