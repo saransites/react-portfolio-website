@@ -14,7 +14,6 @@ const Formcontacts = () => {
       [e.target.name]:e.target.value
     })
   }
-  console.log()
   const handlesubmit= async (e)=>{
     e.preventDefault()
     try{
